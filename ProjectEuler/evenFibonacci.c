@@ -13,35 +13,41 @@ Déjà, on peut aussi dire une chose simple: la somme de deux nombres pairs ou i
 
 Dans un essai précédent en js, je me suis embêté à faire la liste des nombres de fibo jusqu'à 4M. Dans le fond, il n'y a besoin que d'un compteur qui va de 0 à 3 et deux nombres tampons qui updatent alternativement. Quand le compteur est sur 3, on addtitionne le nombre qu'on vient d'obtenir et on remet le compteur sur 0.
 
-Stop quand l'un des deux buffers dépasse 4M. Un while peut gérer le coup.
+Stop quand l'un des deux buffers dépasse 4M.
 
-et pour alterner les buffers histoires de toujours mettre à jour le plus petit des deux ou toujours additionner le plus grand des deux, il y a besoin de deux if. C'est pas très élégant, mais ça va bien marcher et c'est moins con que de tout calculer et ensuite chercher les nombres pairs.
-
-Une fonction récursive pour alterner les deux buffers, c'est pas mal.
 */
 
-int bufferNombre1 = 1
-int bufferNombre2= 2
 int stepCounter = 0;
-int result = 2;
 
-int increment(int, int);
+int increment(int, int, int);
 
 int main(){
 
-    int test = increment(bufferNombre1, bufferNombre2);
+    int result = increment(1, 2, 2); // 1 et 2 sont les premiers nombres de la suite. 2 est aussi la première valeur de la somme des nombres pairs.
 
-    //DOOM
-    while(bufferNombre1 <= 4000000 || bufferNombre2 <= 4000000 ){ //si on veut être formel: "n'éxcède pas 4 million", ça inclut 4 million quand-même... BLEH
-
-    }
-
-
+    printf("La somme des nombres pairs de la suite de Fibonacci qui sont inférieurs à 4 million est : %i", result);
 
     return 0;
 }
 
-int increment(num1, num2){
+int increment(num1, num2, sumEvens){
     //num2 is always the biggest
+    
+    if (stepCounter == 3){
+        sumEvens += num2;
+        stepCounter = 0;
+    }
+
+    //redunDOOM
+    if(num1 <= 4000000 && num2 <= 4000000 ){ //si on veut être formel: "n'éxcède pas 4 million", ça inclut 4 million quand-même... BLEH
+
+        num1 += num2;
+
+        stepCounter++;
+
+        return increment(num2, num1, sumEvens);
+    }
+
+    return sumEvens;
 
 }
