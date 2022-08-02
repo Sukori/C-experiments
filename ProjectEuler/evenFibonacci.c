@@ -15,7 +15,9 @@ Dans un essai précédent en js, je me suis embêté à faire la liste des nombr
 
 Stop quand l'un des deux buffers dépasse 4M. Un while peut gérer le coup.
 
-et pour alterner les buffers histoires de toujours mettre à jour le plus petit des deux ou toujours additionner le plus grand des deux, il y a besoin de deux if. C'est pas très élégant, mais ça va bien marcher et c'est moins con de tout calculer et ensuite chercher les nombres pairs.
+et pour alterner les buffers histoires de toujours mettre à jour le plus petit des deux ou toujours additionner le plus grand des deux, il y a besoin de deux if. C'est pas très élégant, mais ça va bien marcher et c'est moins con que de tout calculer et ensuite chercher les nombres pairs.
+
+Une fonction récursive pour alterner les deux buffers, c'est pas mal.
 */
 
 int bufferNombre1 = 1
@@ -23,18 +25,23 @@ int bufferNombre2= 2
 int stepCounter = 0;
 int result = 2;
 
+int increment(int, int);
+
 int main(){
+
+    int test = increment(bufferNombre1, bufferNombre2);
 
     //DOOM
     while(bufferNombre1 <= 4000000 || bufferNombre2 <= 4000000 ){ //si on veut être formel: "n'éxcède pas 4 million", ça inclut 4 million quand-même... BLEH
-    
-        if (stepCounter == 3){
-            //On fait l'addition dans result et on réinitialise stepCounter à 0. Ensuite, l^'opération d'addition est toujours la même
-        }
 
     }
 
 
 
     return 0;
+}
+
+int increment(num1, num2){
+    //num2 is always the biggest
+
 }
