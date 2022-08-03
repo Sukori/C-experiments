@@ -6,7 +6,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 Un peu bruteforce: On cherche les multiples "un par un" sachant que ça fait forcément 333 itérations (3  * 333 = 999). 5 * 200 = 1000, mais on veut rester strictement inférieur à 1000. Donc une boucle qui multiplie 3 par 1-333 et 5 aussi, mais seulement jusqu'à 199, après ça stop de compter pour 5.
 Au total on a quand-même dans les 500 opérations.
-ça a l'avantage d'être vite écrit.
+Il faut quand-meme éviter de compter 2 fois les multiples de 3 et 5.
 */
 
 int result = 0;
@@ -14,16 +14,20 @@ int result = 0;
 int main(){
 
     for(int i = 1; i <=333; i++){
+
         if(i < 200){
 
             result += 5*i;
 
         }
 
-        result += i * 3;
+        if(i*3 % 5 != 0){
+            result += i * 3;
+        }
+
     }
 
-    printf("The sum of all the multiples of 3 and 5 below 1000 is: %i", result);
+    printf("The sum of all the multiples of 3 and 5 below 1000 is: %i\n\n", result);
 
     return 0;
 }

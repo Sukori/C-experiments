@@ -25,12 +25,12 @@ int main(){
 
     int result = increment(1, 2, 2); // 1 et 2 sont les premiers nombres de la suite. 2 est aussi la première valeur de la somme des nombres pairs.
 
-    printf("La somme des nombres pairs de la suite de Fibonacci qui sont inférieurs à 4 million est : %i", result);
+    printf("La somme des nombres pairs de la suite de Fibonacci qui sont inférieurs à 4 million est : %i\n\n", result);
 
     return 0;
 }
 
-int increment(num1, num2, sumEvens){
+int increment(int num1, int num2, int sumEvens){
     //num2 is always the biggest
     
     if (stepCounter == 3){

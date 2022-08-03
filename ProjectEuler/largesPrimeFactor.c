@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
 
 /*
 Probleme 3
@@ -32,21 +34,22 @@ Le buffer est une liste, parce qu'on veut aussi vérifier que le nombre trouvé,
     //function test divide (n,N) -> function test prime (n+2)
 */
 
-static int theNumber = 600851475143;
+static long theNumber = 600851475143;
 static int i = 7;
-int testPrime(int);
-int testDivide(int);
+static int stock = 0;
+bool testPrime(int);
+long testDivide(int);
 
 int main(){
 
-    int result = testDivide(7);
+    long result = testDivide(7);
 
-    printf("Le plus grand facteur premier de %i est : %i", theNumber, result);
+    printf("Le plus grand facteur premier de %ld est : %ld\n\n", theNumber, result);
 
     return 0;
 }
 
-int testPrime(n){
+bool testPrime(int n){
     if(n % 3 == 0 || n % 5 == 0){
         return false;
     }
@@ -63,12 +66,18 @@ int testPrime(n){
     return testPrime(n);
 }
 
-int testDivide(n){
-    if(!testPrime(n) || theNumber % n != 0){
-        if(n < sqrt(theNumber)){
-            return testDivide(n+2);
+long testDivide(int num){
+    if(num < sqrt(theNumber)){
+
+        if(!testPrime(num) || theNumber % num != 0){
+            return testDivide(num+2);
+        }
+
+        if(testPrime(num) && theNumber % num == 0){
+            stock = num;
+            return testDivide(num+2);
         }
     }
 
-    return n;
+    return stock;
 }
