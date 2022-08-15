@@ -14,8 +14,6 @@ On commence avec 100 et on le multiplie par tout, jusqu'à 999
 n * n+x pour 0 <= x <= 999 - (n-1) et pour 100 <= n <= 999
 
 Alors si on veut être intelligent, on commence de tout en haut et on descend de 999 à 100. Mais la condition d'arrêt est à établir.
-On peut chercher depuis le haut par pack de 9. 999 à 990 x 999 à 990 si pas de palindrome, on passe à 999 - 10 et ainsi de suite.
-Le premier palindrome trouvé devrait être le plus grand.
 
 On peut essayer de prédire que le plus grand palindrome commence avec 9 et finit par 9.
 Le seul moyen d'avoir un produit qui commence par 9 est de rester entre 901 et 999, Ce qui réduit la zone de recherche.
@@ -31,9 +29,9 @@ On gagne masse essais.
 
 
 à chaque multiplication, on convertit le résultat en string
-on enregistre dans une autre string la lecture à l'envers du premier
-on compare.
-Si égaux, on sauve dans notre variable result, sinon on continue. La dernière entrée sera forcément la plus grande.
+on lit le résultat par les deux bouts.
+Si on a une différence entre les deux chiffres comparés, c'est dead, sinon on continue.
+Si la boucle termine, on sauve dans notre variable result. La dernière entrée sera forcément la plus grande.
 
 C'est valable en C [::-1] pour inverser un string ??? -> non
 

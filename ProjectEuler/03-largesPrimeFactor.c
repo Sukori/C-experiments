@@ -5,6 +5,7 @@
 Probleme 3
 The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143 ?
+
 Bruteforce: en comptant depuis 1, trouver des nombres premiers et diviser le nombre par chacun d'eux en stockant la valeur du plus grand qui a fonctionné.
 C'est stupide et ça peut faire des tonnes d'itérations.
 Déjà, si on cherche le plus grand diviseur, on peut rester au dessous de la racine carrée du nombre, parce qu'on ne peut pas avoir un nombre premier plus grand que ça comme facteur.
@@ -20,6 +21,7 @@ sinon on essaie de diviser N par notre nombre.
 Si divisible, on place le nombre en buffer jusqu'à en trouver un plus grand
 sinon, on recommence avec le n+2 (donc 9 après 7, comme on évite les nombres pairs).
 Le buffer est une liste, parce qu'on veut aussi vérifier que le nombre trouvé, n'est pas aussi un multiple d'un nombre premier déjà trouvé, non ?
+Sinon refaire une boucle sur la racine carrée du nombre à tester. Et si on ne trouve rien, alors c'est un nombre premier.
     //function test prime(n)
     //function test divide (n,N) -> function test prime (n+2)
 */
