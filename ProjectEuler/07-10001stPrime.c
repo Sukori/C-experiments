@@ -1,11 +1,13 @@
 #include <stdio.h>
 
 /*
-    Consigne:
-    On va refaire l'exercice de recherche de nombre premier. On va rechercher le 10001e nombre premier.
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
 
-    Donc j'avais fait un truc du genre de rechercher les nombres premiers à partir de 21 (ou 23) et utiliser tous les nombres premiers trouvés pour les ajouter à la liste des nombres dont les multiples sont à ignorer, pour ignorer de plus en plus de nombre et ne pas faire péter le processeur.
-    On ignoe aussi tous les nombres paires.
+What is the 10'001st prime number?
+
+
+Donc j'avais fait un truc du genre de rechercher les nombres premiers à partir de 21 (ou 23) et utiliser tous les nombres premiers trouvés pour les ajouter à la liste des nombres dont les multiples sont à ignorer, pour ignorer de plus en plus de nombre et ne pas faire péter le processeur.
+On ignore aussi tous les nombres paires.
 */
 
 int premiers[];
