@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 /*
 By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
@@ -15,7 +16,7 @@ alors on veut faire:
 
 on commence avec nombre en cours
 on regarde si le nombre en cours est premier
-    on le compare % i, ou 3 < i < sqrt(nombre en cours) ; i+2 osef des nombres paires
+    on le compare % i, ou 7 < i < sqrt(nombre en cours) ; i+6 on se permet de tirer parti du fait qu'un nombre premier peut s'écrire comme 6n +/- 1
     si on a % = 0 alors pas premier, continue
     si on sort de la boucle sans % = 0
         Result = le nombre en cours, qui est premier
@@ -32,11 +33,22 @@ int nombreEnCours;
 
 int result; //le plus grand premier trouvé à ce moment
 
+int isPrime(int);
+
 int main(){
 
     //Doom
     while(positionEnCours < positionMax){
-        
+
+        if(nombreEnCours % 3 != 0){
+
+            if(isPrime(nombreEnCours) == 1){
+                result = nombreEnCours;
+                positionEnCours++;
+            }
+        }
+
+        nombreEnCours += 2;
     
     }
 
@@ -45,11 +57,27 @@ int main(){
     return 0;
 }
 
-int nombreEnCours = 3; // on sait qu'après 29, c'est 31 le nombre premier suivant.
+int nombreEnCours = 5; // on n'est pas à 10 nombres près, autant commencer à 5 pour ignorer tous les pairs dès le début et permettre de mettre un filtre 3 avant de chercher un nombre premier car 3 a beaucoup de multiples et on va les skip dans la boucle.
 
-int positionEnCours = 10; // parce qu'il y a dix nombres premiers de 2 à 29 inclus.
+int positionEnCours = 2; // parce que 3 est le deuxième nombre premier.
 
 int positionMax = 10001;
 
-int result
+int result = 3; // 3 est le plus grand nombre premier trouvé pour le moment
 
+int isPrime(int nombreTest){
+
+    if(nombreTest == 5){ // obligé sinon 5 ne passe pas le test ci-dessous
+        return 1;
+    }
+
+    for(int i = 5; i <= sqrt(nombreTest); i = i+6){
+
+        if(nombreTest % i == 0 || nombreTest % (i+2) == 0){
+            return 0;
+        }
+
+    }
+
+    return 1;
+}
