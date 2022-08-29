@@ -31,7 +31,7 @@ allez, pour la doc:
 for(int c = 2; c < 1000; c++)
     for(int b = 1; b < c; b++)
         for(int a = 0; a < b; a++)
-            if(a+b+c == 1000)
+            if(a+b+c == 1000 && a^2+b^2==c^2)
                 return (a*b*c)
 
 Voila, c'est tout con et ça ne prend que quelques lignes pour un calcul bien long.
@@ -68,10 +68,20 @@ donc c = 1000 - 200 - 375 = 425
 
 et voilà
 
-Ma fonction prime factors du problème 03 doit etre réécrite parce que j'ai gratté pour résoudre l'autre problème avec moins d'étapes. En plus, là on cherche sur un nombr pair, pas impair.
+Alors c'est très beau, mais c'est une solution humaine. On ne peut pas coder ça sans avoir le résultat au fond. Donc le bruteforce est mon meilleur plan sur ce problème... Tant pis ^^'
 */
 
 int main(){
+    // exécution même pas si lente. sur un nombre plus grand par contre ...
+    for(int c = 2; c < 1000; c++){
+        for(int b = 1; b < c; b++){
+            for(int a = 0; a < b; a++){
+                if(a+b+c == 1000 && a*a+b*b == c*c){
+                    printf("Les trois nombres sont %d, %d et %d.\nLeur somme est bien %d et leur produit est : %d", a, b, c, a+b+c, a*b*c);
+                }
+            }
+        }
+    }
 
     return 0;
 }
