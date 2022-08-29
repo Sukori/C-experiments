@@ -77,7 +77,7 @@ int main(){
         for(int b = 1; b < c; b++){
             for(int a = 0; a < b; a++){
                 if(a+b+c == 1000 && a*a+b*b == c*c){
-                    printf("Les trois nombres sont %d, %d et %d.\nLeur somme est bien %d et leur produit est : %d", a, b, c, a+b+c, a*b*c);
+                    printf("Les trois nombres sont %d, %d et %d.\nLeur somme est bien %d et leur produit est : %d\n", a, b, c, a+b+c, a*b*c);
                 }
             }
         }

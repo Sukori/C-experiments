@@ -81,7 +81,7 @@ int main(){
     
     	printf("%d * ", serieMAX[i]);
     }
-    printf("%d = %ld", serieMAX[12], result);
+    printf("%d = %ld\n", serieMAX[12], result);
     
 
     return 0;

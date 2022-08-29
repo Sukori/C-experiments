@@ -56,11 +56,21 @@ int main(){
 
 int iterations20(int nombreATester){
 
-    for(int i = 0; i < 9; i++){
-        if(nombreATester % diviseursATester[i] != 0){
-            
-            return iterations20(nombreATester + 20);
+    int stopIfTrue = 0;
+
+    while(stopIfTrue != 1){
+
+        for(int i = 0; i < 9; i++){
+            if(nombreATester % diviseursATester[i] != 0){
+
+                nombreATester += 20;
+                break;
+            }
+            if(i == 8){
+                stopIfTrue = 1;
+            }
         }
+
     }
 
     return nombreATester;
